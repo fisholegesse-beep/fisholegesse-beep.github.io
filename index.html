@@ -12,7 +12,6 @@
             --epl-green: #00ff87;
             --epl-pink: #ff005a;
             --epl-blue: #04f5ff;
-            --stadium-grass: #1b5e20;
         }
 
         * {
@@ -44,7 +43,6 @@
             border: 3px solid var(--epl-green);
         }
 
-        /* SCREEN 1: TEAM SELECTION */
         .screen {
             position: absolute;
             top: 0;
@@ -67,85 +65,83 @@
         }
 
         h1.title {
-            font-size: 38px;
+            font-size: 34px;
             font-weight: 900;
             text-transform: uppercase;
             background: linear-gradient(45deg, var(--epl-green), var(--epl-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 5px;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            letter-spacing: 1px;
         }
 
-        p.subtitle {
-            font-size: 16px;
-            color: #d8b4fe;
-            margin-bottom: 25px;
+        /* AUTH & BETTING STYLES */
+        .auth-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--epl-green);
+            border-radius: 15px;
+            padding: 25px;
+            width: 380px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid var(--epl-green);
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            font-weight: bold;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .balance-bar {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #000;
+            font-weight: 900;
+            font-size: 18px;
+            margin-bottom: 15px;
         }
 
         .team-select-wrapper {
             display: flex;
             justify-content: space-around;
             width: 100%;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .player-box {
             background: rgba(255, 255, 255, 0.05);
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            padding: 15px;
-            width: 44%;
+            padding: 10px;
+            width: 46%;
             text-align: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .player-box.active-selection {
-            border-color: var(--epl-green);
-            box-shadow: 0 0 15px rgba(0, 255, 135, 0.3);
-        }
-
-        .player-title {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--epl-green);
-            margin-bottom: 12px;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            max-height: 220px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            max-height: 160px;
             overflow-y: auto;
-            padding-right: 5px;
-        }
-
-        .team-grid::-webkit-scrollbar {
-            width: 6px;
-        }
-        .team-grid::-webkit-scrollbar-thumb {
-            background: var(--epl-green);
-            border-radius: 10px;
         }
 
         .team-card {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 10px 5px;
+            border-radius: 8px;
+            padding: 8px 4px;
             cursor: pointer;
-            transition: all 0.2s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
-        }
-
-        .team-card:hover {
-            background: rgba(0, 255, 135, 0.2);
-            transform: translateY(-3px);
+            font-size: 11px;
         }
 
         .team-card.selected {
@@ -154,127 +150,45 @@
             font-weight: bold;
         }
 
-        .team-card i {
-            font-size: 22px;
-        }
-
-        .team-card span {
-            font-size: 12px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 90px;
-        }
-
-        .btn-start {
+        .btn-action {
             background: linear-gradient(45deg, var(--epl-green), #00c853);
             color: #0b0210;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 900;
-            padding: 14px 45px;
+            padding: 12px 35px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0, 255, 135, 0.4);
-            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 255, 135, 0.4);
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .btn-start:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(0, 255, 135, 0.6);
-        }
+        .btn-action:hover { transform: scale(1.05); }
 
-        /* GAMEPLAY SCREEN */
-        #game-screen {
-            padding: 0;
-            justify-content: flex-start;
-        }
-
-        /* TOP HUD SCOREBOARD */
+        /* HUD & STADIUM */
         .hud-header {
             width: 100%;
-            height: 90px;
-            background: rgba(15, 0, 25, 0.9);
+            height: 80px;
+            background: rgba(15, 0, 25, 0.95);
             border-bottom: 2px solid var(--epl-green);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 25px;
+            padding: 0 20px;
             z-index: 20;
         }
 
-        .hud-team {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            width: 35%;
-        }
-
-        .hud-team.p2 {
-            justify-content: flex-end;
-        }
-
-        .hud-team-name {
-            font-size: 18px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .shots-indicator {
-            display: flex;
-            gap: 6px;
-            margin-top: 5px;
-        }
-
-        .shot-dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .shot-dot.goal {
-            background: var(--epl-green);
-            box-shadow: 0 0 8px var(--epl-green);
-            border: none;
-        }
-
-        .shot-dot.miss {
-            background: var(--epl-pink);
-            box-shadow: 0 0 8px var(--epl-pink);
-            border: none;
-        }
-
         .hud-score-box {
-            background: linear-gradient(135deg, var(--epl-purple), #1d0024);
+            background: var(--epl-purple);
             border: 2px solid var(--epl-green);
-            border-radius: 12px;
-            padding: 8px 30px;
+            border-radius: 10px;
+            padding: 5px 20px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0, 255, 135, 0.2);
         }
 
-        .hud-score-number {
-            font-size: 32px;
-            font-weight: 900;
-            letter-spacing: 4px;
-            color: #fff;
-        }
-
-        .hud-round-info {
-            font-size: 11px;
-            color: var(--epl-green);
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        /* STADIUM CANVAS STAGE */
         .stadium-stage {
             width: 100%;
-            height: 480px;
+            height: 490px;
             position: relative;
             background: radial-gradient(circle at 50% 30%, #2e7d32, #1b5e20 70%, #0d3b10);
             overflow: hidden;
@@ -283,139 +197,53 @@
             align-items: flex-end;
         }
 
-        /* CROWD & NET BACKGROUND */
-        .crowd-bg {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 180px;
-            background: linear-gradient(to bottom, #07000c, rgba(20, 0, 35, 0.8)), 
-                        repeating-linear-gradient(90deg, #ff005a 0, #04f5ff 10px, #00ff87 20px, #ffeb3b 30px);
-            opacity: 0.25;
-            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-        }
-
-        /* GOAL POST STRUCTURE */
         .goal-frame {
             position: absolute;
-            top: 70px;
-            width: 580px;
-            height: 220px;
+            top: 60px;
+            width: 540px;
+            height: 210px;
             border: 10px solid #ffffff;
             border-bottom: none;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.6), 0 0 15px rgba(255,255,255,0.8);
             z-index: 5;
             background: repeating-linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 5px, rgba(0,0,0,0.1) 5px, rgba(0,0,0,0.1) 10px);
         }
 
-        .goal-net-line {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-size: 15px 15px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-        }
-
-        /* GOALKEEPER */
         .goalkeeper {
             position: absolute;
             bottom: 10px;
-            left: calc(50% - 35px);
-            width: 70px;
-            height: 110px;
+            left: calc(50% - 30px);
+            width: 60px;
+            height: 100px;
             z-index: 6;
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-            transform-origin: bottom center;
+            transition: all 0.5s ease;
         }
 
         .keeper-body {
             width: 100%;
             height: 100%;
-            position: relative;
-        }
-
-        .keeper-head {
-            width: 28px;
-            height: 28px;
-            background: #ffcc80;
-            border-radius: 50%;
-            margin: 0 auto;
-            border: 2px solid #333;
-        }
-
-        .keeper-torso {
-            width: 44px;
-            height: 48px;
             background: #ff6d00;
-            margin: 2px auto 0;
-            border-radius: 6px;
-            position: relative;
-        }
-
-        .keeper-arm {
-            position: absolute;
-            width: 12px;
-            height: 40px;
-            background: #ff6d00;
-            top: 0;
-            border-radius: 4px;
-        }
-        .keeper-arm.left { left: -10px; transform: rotate(15deg); }
-        .keeper-arm.right { right: -10px; transform: rotate(-15deg); }
-
-        .keeper-glove {
-            position: absolute;
-            bottom: -6px;
-            width: 16px;
-            height: 16px;
-            background: #fff;
-            border-radius: 50%;
+            border-radius: 10px;
             border: 2px solid #000;
         }
 
-        .keeper-legs {
-            display: flex;
-            justify-content: space-between;
-            width: 36px;
-            margin: 0 auto;
-        }
-
-        .keeper-leg {
-            width: 14px;
-            height: 34px;
-            background: #212121;
-        }
-
-        /* FOOTBALL BALL */
         .ball {
             position: absolute;
-            bottom: 45px;
-            left: calc(50% - 20px);
-            width: 40px;
-            height: 40px;
-            background: radial-gradient(circle at 30% 30%, #ffffff, #e0e0e0 60%, #9e9e9e);
+            bottom: 40px;
+            left: calc(50% - 18px);
+            width: 36px;
+            height: 36px;
+            background: #fff;
             border-radius: 50%;
             z-index: 8;
-            box-shadow: 0 10px 15px rgba(0,0,0,0.5);
-            transition: transform 0.6s cubic-bezier(0.1, 0.8, 0.3, 1), left 0.6s cubic-bezier(0.1, 0.8, 0.3, 1), bottom 0.6s cubic-bezier(0.1, 0.8, 0.3, 1);
+            transition: all 0.6s cubic-bezier(0.1, 0.8, 0.3, 1);
         }
+        .ball::before { content: '⚽'; font-size: 30px; position: absolute; top: -3px; left: 1px; }
 
-        .ball::before {
-            content: '⚽';
-            font-size: 34px;
-            position: absolute;
-            top: -3px;
-            left: 2px;
-        }
-
-        /* SHOOTING TARGET CONTROLS */
         .target-grid {
             position: absolute;
-            top: 80px;
-            width: 560px;
-            height: 200px;
+            top: 70px;
+            width: 520px;
+            height: 190px;
             z-index: 9;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -424,33 +252,15 @@
         }
 
         .target-zone {
-            border: 2px dashed rgba(255, 255, 255, 0.25);
-            border-radius: 10px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: all 0.2s ease;
         }
+        .target-zone:hover { background: rgba(0, 255, 135, 0.3); }
 
-        .target-zone:hover {
-            background: rgba(0, 255, 135, 0.25);
-            border-color: var(--epl-green);
-            transform: scale(0.98);
-        }
-
-        .target-zone i {
-            font-size: 28px;
-            color: rgba(255, 255, 255, 0.4);
-            transition: all 0.2s;
-        }
-
-        .target-zone:hover i {
-            color: var(--epl-green);
-            transform: scale(1.3);
-        }
-
-        /* BOTTOM BANNER / COMMENTARY */
         .bottom-bar {
             width: 100%;
             height: 80px;
@@ -458,83 +268,8 @@
             border-top: 2px solid var(--epl-green);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 30px;
-            z-index: 20;
-        }
-
-        .commentary-box {
-            display: flex;
-            align-items: center;
+            padding: 0 20px;
             gap: 15px;
-            color: #fff;
-            font-size: 17px;
-            font-weight: 600;
-        }
-
-        .mic-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--epl-pink);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 18px;
-            box-shadow: 0 0 10px var(--epl-pink);
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        /* WINNER / SUMMARY OVERLAY */
-        .winner-modal {
-            background: rgba(15, 0, 25, 0.95);
-            border: 3px solid var(--epl-green);
-            border-radius: 20px;
-            padding: 35px;
-            text-align: center;
-            box-shadow: 0 0 50px rgba(0, 255, 135, 0.5);
-            max-width: 500px;
-            width: 90%;
-        }
-
-        .trophy-icon {
-            font-size: 70px;
-            color: #ffd700;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-            animation: bounce 1s infinite alternate;
-        }
-
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-10px); }
-        }
-
-        .turn-announcer {
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 42px;
-            font-weight: 900;
-            color: #fff;
-            text-shadow: 0 0 20px var(--epl-green), 0 0 40px #000;
-            z-index: 15;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-            text-transform: uppercase;
-            text-align: center;
-        }
-
-        .show-announcer {
-            opacity: 1;
         }
     </style>
 </head>
@@ -542,436 +277,283 @@
 
     <div id="game-container">
         
-        <!-- SCREEN 1: TEAM SELECTION SCREEN -->
-        <div id="select-screen" class="screen">
-            <h1 class="title">EPL PENALTY SHOOTOUT</h1>
-            <p class="subtitle">እንግሊዝ ፕሪምየር ሊግ - 2 ተጫዋቾች (6 የፔናሊቲ ዙር)</p>
+        <!-- SCREEN 0: OTP LOGIN SCREEN -->
+        <div id="auth-screen" class="screen">
+            <h1 class="title">EPL PENALTY BET</h1>
+            <p style="margin-bottom: 20px; color: #d8b4fe;">ለመጫወት በስልክ ቁጥርዎ ይግቡ</p>
+            <div class="auth-card">
+                <input type="tel" id="user-phone" placeholder="የስልክ ቁጥር (09........)">
+                <button class="btn-action" style="width:100%; font-size:15px;" onclick="sendOTP()">OTP ላክ</button>
+
+                <div id="otp-group" style="display:none; margin-top:15px;">
+                    <input type="number" id="otp-code" placeholder="4 አሃዝ OTP ያስገቡ">
+                    <button class="btn-action" style="width:100%; font-size:15px; background:var(--epl-blue);" onclick="verifyOTP()">ተመዝገብ / ግባ</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 1: BETTING & TEAM SELECTION -->
+        <div id="select-screen" class="screen hidden">
+            <div class="balance-bar">
+                ሒሳብዎ: <span id="user-balance">500</span> ብር
+            </div>
+
+            <h1 class="title" style="font-size: 26px;">የብር መጠን እና ቡድን ይምረጡ</h1>
+
+            <div style="width: 380px; margin-bottom: 15px;">
+                <label style="font-size:13px; color:var(--epl-green);">የመወራረጃ የብር መጠን፦</label>
+                <select id="bet-amount">
+                    <option value="10">10 ብር (ለማሸነፍ: 15 ብር)</option>
+                    <option value="20">20 ብር (ለማሸነፍ: 30 ብር)</option>
+                    <option value="30">30 ብር (ለማሸነፍ: 45 ብር)</option>
+                    <option value="40">40 ብር (ለማሸነፍ: 60 ብር)</option>
+                    <option value="50">50 ብር (ለማሸነፍ: 75 ብር)</option>
+                    <option value="60">60 ብር (ለማሸነፍ: 90 ብር)</option>
+                    <option value="70">70 ብር (ለማሸነፍ: 105 ብር)</option>
+                    <option value="80">80 ብር (ለማሸነፍ: 120 ብር)</option>
+                    <option value="90">90 ብር (ለማሸነፍ: 135 ብር)</option>
+                    <option value="100">100 ብር (ለማሸነፍ: 150 ብር)</option>
+                </select>
+            </div>
 
             <div class="team-select-wrapper">
-                <!-- PLAYER 1 SELECTION -->
-                <div class="player-box active-selection" id="p1-box">
-                    <div class="player-title"><i class="fa-solid fa-user"></i> ተጫዋች 1 (Player 1)</div>
+                <div class="player-box">
+                    <div style="color:var(--epl-green); font-weight:bold; font-size:14px;">ተጫዋች 1 (እርስዎ)</div>
                     <div class="team-grid" id="p1-teams"></div>
                 </div>
-
-                <!-- PLAYER 2 SELECTION -->
-                <div class="player-box" id="p2-box">
-                    <div class="player-title"><i class="fa-solid fa-user-ninja"></i> ተጫዋች 2 (Player 2)</div>
+                <div class="player-box">
+                    <div style="color:var(--epl-blue); font-weight:bold; font-size:14px;">ተጫዋች 2 (ተጋጣሚ)</div>
                     <div class="team-grid" id="p2-teams"></div>
                 </div>
             </div>
 
-            <button class="btn-start" id="start-btn" onclick="startGame()">ጨዋታውን ጀምር <i class="fa-solid fa-play"></i></button>
+            <button class="btn-action" onclick="startMatch()">ጨዋታውን ጀምር <i class="fa-solid fa-play"></i></button>
         </div>
 
-        <!-- SCREEN 2: GAMEPLAY SCREEN -->
-        <div id="game-screen" class="screen hidden">
-            
-            <!-- TOP SCOREBOARD -->
+        <!-- SCREEN 2: GAMEPLAY -->
+        <div id="game-screen" class="screen hidden" style="padding:0; justify-content:flex-start;">
             <div class="hud-header">
-                <div class="hud-team p1">
-                    <i class="fa-solid fa-shield-halved" id="p1-hud-icon" style="font-size: 32px; color: var(--epl-green);"></i>
-                    <div>
-                        <div class="hud-team-name" id="p1-hud-name">ARS</div>
-                        <div class="shots-indicator" id="p1-dots"></div>
-                    </div>
+                <div>
+                    <span id="p1-hud-name" style="font-weight:bold; color:var(--epl-green);">ARS</span>
+                    <div id="p1-dots"></div>
                 </div>
-
                 <div class="hud-score-box">
-                    <div class="hud-score-number" id="score-text">0 - 0</div>
-                    <div class="hud-round-info" id="round-text">ዙር 1 / 6</div>
+                    <div id="score-text" style="font-size:24px; font-weight:900;">0 - 0</div>
+                    <div id="round-text" style="font-size:10px; color:var(--epl-green);">ዙር 1 / 6</div>
                 </div>
-
-                <div class="hud-team p2">
-                    <div>
-                        <div class="hud-team-name" id="p2-hud-name" style="text-align: right;">MCI</div>
-                        <div class="shots-indicator" id="p2-dots"></div>
-                    </div>
-                    <i class="fa-solid fa-shield-halved" id="p2-hud-icon" style="font-size: 32px; color: var(--epl-blue);"></i>
+                <div>
+                    <span id="p2-hud-name" style="font-weight:bold; color:var(--epl-blue);">MCI</span>
+                    <div id="p2-dots"></div>
                 </div>
             </div>
 
-            <!-- STADIUM FIELD STAGE -->
             <div class="stadium-stage">
-                <div class="crowd-bg"></div>
+                <div class="goal-frame"></div>
 
-                <!-- TURN ANNOUNCER OVERLAY -->
-                <div class="turn-announcer" id="turn-announcer">ARSENAL SHOOTING</div>
-
-                <!-- GOAL FRAME -->
-                <div class="goal-frame">
-                    <div class="goal-net-line"></div>
+                <div class="target-grid">
+                    <div class="target-zone" onclick="takeShot('top-left')">🎯</div>
+                    <div class="target-zone" onclick="takeShot('top-center')">🎯</div>
+                    <div class="target-zone" onclick="takeShot('top-right')">🎯</div>
+                    <div class="target-zone" onclick="takeShot('bottom-left')">🎯</div>
+                    <div class="target-zone" onclick="takeShot('bottom-center')">🎯</div>
+                    <div class="target-zone" onclick="takeShot('bottom-right')">🎯</div>
                 </div>
 
-                <!-- TARGET INTERACTIVE ZONES -->
-                <div class="target-grid" id="target-grid">
-                    <div class="target-zone" onclick="takeShot('top-left')"><i class="fa-solid fa-bullseye"></i></div>
-                    <div class="target-zone" onclick="takeShot('top-center')"><i class="fa-solid fa-bullseye"></i></div>
-                    <div class="target-zone" onclick="takeShot('top-right')"><i class="fa-solid fa-bullseye"></i></div>
-                    <div class="target-zone" onclick="takeShot('bottom-left')"><i class="fa-solid fa-bullseye"></i></div>
-                    <div class="target-zone" onclick="takeShot('bottom-center')"><i class="fa-solid fa-bullseye"></i></div>
-                    <div class="target-zone" onclick="takeShot('bottom-right')"><i class="fa-solid fa-bullseye"></i></div>
-                </div>
-
-                <!-- GOALKEEPER -->
-                <div class="goalkeeper" id="goalkeeper">
-                    <div class="keeper-body">
-                        <div class="keeper-head"></div>
-                        <div class="keeper-torso">
-                            <div class="keeper-arm left"><div class="keeper-glove"></div></div>
-                            <div class="keeper-arm right"><div class="keeper-glove"></div></div>
-                        </div>
-                        <div class="keeper-legs">
-                            <div class="keeper-leg"></div>
-                            <div class="keeper-leg"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FOOTBALL -->
+                <div class="goalkeeper" id="goalkeeper"><div class="keeper-body"></div></div>
                 <div class="ball" id="football"></div>
             </div>
 
-            <!-- BOTTOM COMMENTARY BAR -->
             <div class="bottom-bar">
-                <div class="commentary-box">
-                    <div class="mic-icon"><i class="fa-solid fa-microphone"></i></div>
-                    <div id="commentary-text">የጨዋታው ኮሜንታተር፡ ኳስ ለመምታት አላማውን ይምረጡ!</div>
-                </div>
+                <i class="fa-solid fa-microphone" style="color:var(--epl-pink); font-size:20px;"></i>
+                <div id="commentary-text" style="font-weight:600;">ኮሜንታተር፦ አቅጣጫ መርጠው ይመቱ!</div>
             </div>
         </div>
 
         <!-- SCREEN 3: WINNER OVERLAY -->
-        <div id="winner-screen" class="screen hidden" style="background: rgba(0,0,0,0.85); z-index: 30;">
-            <div class="winner-modal">
-                <i class="fa-solid fa-trophy trophy-icon"></i>
-                <h1 id="winner-title" style="font-size: 32px; color: var(--epl-green); margin-bottom: 10px;">ARSENAL WIN!</h1>
-                <p id="winner-score" style="font-size: 22px; margin-bottom: 25px; color: #fff;">የመጨረሻ ውጤት: 4 - 3</p>
-                <button class="btn-start" onclick="resetGame()">ድጋሚ ጫወት <i class="fa-solid fa-rotate-right"></i></button>
-            </div>
+        <div id="winner-screen" class="screen hidden" style="background:rgba(0,0,0,0.9);">
+            <i class="fa-solid fa-trophy" style="font-size:60px; color:#ffd700; margin-bottom:15px;"></i>
+            <h1 id="winner-title" style="color:var(--epl-green); margin-bottom:10px;">ARSENAL WINS!</h1>
+            <p id="winner-score" style="font-size:18px; margin-bottom:15px;"></p>
+            <p id="winner-prize" style="font-size:22px; color:#ffd700; font-weight:bold; margin-bottom:20px;"></p>
+            <button class="btn-action" onclick="resetToSelection()">ድጋሚ ጫወት</button>
         </div>
 
     </div>
 
     <script>
-        // PREMIER LEAGUE TEAMS LIST
+        let balance = 500;
+        let currentBet = 10;
+        
         const eplTeams = [
-            { id: 'ARS', name: 'Arsenal', color: '#ef0107', icon: 'fa-shield-halved' },
-            { id: 'MCI', name: 'Man City', color: '#6cabdd', icon: 'fa-crown' },
-            { id: 'LIV', name: 'Liverpool', color: '#c8102e', icon: 'fa-feather' },
-            { id: 'MUN', name: 'Man United', color: '#da020e', icon: 'fa-bolt' },
-            { id: 'CHE', name: 'Chelsea', color: '#034694', icon: 'fa-lion' },
-            { id: 'TOT', name: 'Tottenham', color: '#132257', icon: 'fa-feather-pointed' },
-            { id: 'AVL', name: 'Aston Villa', color: '#95bfe6', icon: 'fa-shield' },
-            { id: 'NEW', name: 'Newcastle', color: '#241d1e', icon: 'fa-flag' },
-            { id: 'BHA', name: 'Brighton', color: '#0057b8', icon: 'fa-water' },
-            { id: 'WHU', name: 'West Ham', color: '#7a263a', icon: 'fa-hammer' }
+            { id: 'ARS', name: 'Arsenal', color: '#ef0107' },
+            { id: 'MCI', name: 'Man City', color: '#6cabdd' },
+            { id: 'LIV', name: 'Liverpool', color: '#c8102e' },
+            { id: 'MUN', name: 'Man United', color: '#da020e' },
+            { id: 'CHE', name: 'Chelsea', color: '#034694' },
+            { id: 'TOT', name: 'Tottenham', color: '#132257' }
         ];
 
         let selectedP1 = eplTeams[0];
         let selectedP2 = eplTeams[1];
 
-        const MAX_SHOTS = 6;
-        let currentRound = 1; // 1 to 6
+        let currentRound = 1;
         let currentTurn = 1; // 1 = P1, 2 = P2
         let p1Score = 0;
         let p2Score = 0;
-        let p1Shots = []; // array of 'goal' or 'miss'
-        let p2Shots = [];
         let isShooting = false;
 
-        // WEB AUDIO SYNTHESIZER SOUND SYSTEM
-        const AudioCtx = window.AudioContext || window.webkitAudioContext;
-        let audioCtx;
-
-        function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new AudioCtx();
+        // AUTH FUNCTIONS
+        function sendOTP() {
+            const phone = document.getElementById('user-phone').value;
+            if (phone.length >= 10) {
+                alert(`OTP ቁጥር በ SMS ወደ ${phone} ተልኳል! (ለሙከራ: 1234)`);
+                document.getElementById('otp-group').style.display = 'block';
+            } else {
+                alert('እባክዎን ትክክለኛ የስልክ ቁጥር ያስገቡ!');
             }
         }
 
-        function playSound(type) {
-            initAudio();
-            if (!audioCtx) return;
-
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-
-            const now = audioCtx.currentTime;
-
-            if (type === 'kick') {
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(150, now);
-                osc.frequency.exponentialRampToValueAtTime(40, now + 0.15);
-                gain.gain.setValueAtTime(1, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
-                osc.start(now);
-                osc.stop(now + 0.15);
-            } else if (type === 'goal') {
-                // Crowd Cheer simulation
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(300, now);
-                osc.frequency.linearRampToValueAtTime(600, now + 0.4);
-                gain.gain.setValueAtTime(0.3, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.8);
-                osc.start(now);
-                osc.stop(now + 0.8);
-            } else if (type === 'save') {
-                osc.type = 'square';
-                osc.frequency.setValueAtTime(200, now);
-                osc.frequency.exponentialRampToValueAtTime(80, now + 0.2);
-                gain.gain.setValueAtTime(0.5, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
-                osc.start(now);
-                osc.stop(now + 0.2);
-            } else if (type === 'whistle') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(2200, now);
-                osc.frequency.setValueAtTime(1800, now + 0.1);
-                osc.frequency.setValueAtTime(2200, now + 0.2);
-                gain.gain.setValueAtTime(0.4, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
-                osc.start(now);
-                osc.stop(now + 0.4);
+        function verifyOTP() {
+            const otp = document.getElementById('otp-code').value;
+            if (otp === "1234") {
+                document.getElementById('auth-screen').classList.add('hidden');
+                document.getElementById('select-screen').classList.remove('hidden');
+                updateBalanceUI();
+            } else {
+                alert('የተሳሳተ OTP ቁጥር!');
             }
         }
 
-        // VOICE COMMENTARY (SPEECH SYNTHESIS)
-        function speakCommentary(text, lang = 'en-US') {
-            document.getElementById('commentary-text').innerText = text;
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.rate = 1.05;
-                utterance.pitch = 1.1;
-                utterance.lang = lang;
-                window.speechSynthesis.speak(utterance);
-            }
+        function updateBalanceUI() {
+            document.getElementById('user-balance').innerText = balance;
         }
 
-        // INITIALIZE TEAM SELECTION UI
-        function populateTeamGrids() {
-            const p1Container = document.getElementById('p1-teams');
-            const p2Container = document.getElementById('p2-teams');
+        // TEAMS SETUP
+        function renderTeams() {
+            const p1Grid = document.getElementById('p1-teams');
+            const p2Grid = document.getElementById('p2-teams');
+            p1Grid.innerHTML = ''; p2Grid.innerHTML = '';
 
-            p1Container.innerHTML = '';
-            p2Container.innerHTML = '';
+            eplTeams.forEach(t => {
+                const c1 = document.createElement('div');
+                c1.className = `team-card ${t.id === selectedP1.id ? 'selected' : ''}`;
+                c1.innerText = t.name;
+                c1.onclick = () => { selectedP1 = t; renderTeams(); };
+                p1Grid.appendChild(c1);
 
-            eplTeams.forEach((team) => {
-                // P1 card
-                const card1 = document.createElement('div');
-                card1.className = `team-card ${team.id === selectedP1.id ? 'selected' : ''}`;
-                card1.innerHTML = `<i class="fa-solid ${team.icon}" style="color:${team.color}"></i><span>${team.name}</span>`;
-                card1.onclick = () => {
-                    selectedP1 = team;
-                    populateTeamGrids();
-                };
-                p1Container.appendChild(card1);
-
-                // P2 card
-                const card2 = document.createElement('div');
-                card2.className = `team-card ${team.id === selectedP2.id ? 'selected' : ''}`;
-                card2.innerHTML = `<i class="fa-solid ${team.icon}" style="color:${team.color}"></i><span>${team.name}</span>`;
-                card2.onclick = () => {
-                    selectedP2 = team;
-                    populateTeamGrids();
-                };
-                p2Container.appendChild(card2);
+                const c2 = document.createElement('div');
+                c2.className = `team-card ${t.id === selectedP2.id ? 'selected' : ''}`;
+                c2.innerText = t.name;
+                c2.onclick = () => { selectedP2 = t; renderTeams(); };
+                p2Grid.appendChild(c2);
             });
         }
+        renderTeams();
 
-        populateTeamGrids();
-
-        // START GAME
-        function startGame() {
-            if (selectedP1.id === selectedP2.id) {
-                alert('እባክዎን ሁለት የተለያዩ ቡድኖችን ይምረጡ!');
+        function startMatch() {
+            currentBet = parseFloat(document.getElementById('bet-amount').value);
+            if (balance < currentBet) {
+                alert('በቂ ባላንስ የሎትም!');
                 return;
             }
+
+            balance -= currentBet;
+            updateBalanceUI();
 
             document.getElementById('select-screen').classList.add('hidden');
             document.getElementById('game-screen').classList.remove('hidden');
 
-            // Setup HUD
             document.getElementById('p1-hud-name').innerText = selectedP1.name;
-            document.getElementById('p1-hud-icon').style.color = selectedP1.color;
-
             document.getElementById('p2-hud-name').innerText = selectedP2.name;
-            document.getElementById('p2-hud-icon').style.color = selectedP2.color;
-
-            renderShotDots();
-            startTurn();
-        }
-
-        function renderShotDots() {
-            const p1Box = document.getElementById('p1-dots');
-            const p2Box = document.getElementById('p2-dots');
-
-            p1Box.innerHTML = '';
-            p2Box.innerHTML = '';
-
-            for (let i = 0; i < MAX_SHOTS; i++) {
-                const dot1 = document.createElement('div');
-                dot1.className = `shot-dot ${p1Shots[i] || ''}`;
-                p1Box.appendChild(dot1);
-
-                const dot2 = document.createElement('div');
-                dot2.className = `shot-dot ${p2Shots[i] || ''}`;
-                p2Box.appendChild(dot2);
-            }
-
-            document.getElementById('score-text').innerText = `${p1Score} - ${p2Score}`;
-            document.getElementById('round-text').innerText = `ዙር ${currentRound} / ${MAX_SHOTS}`;
-        }
-
-        function startTurn() {
-            isShooting = false;
-            resetBallAndKeeper();
-
-            const currentTeam = currentTurn === 1 ? selectedP1 : selectedP2;
-            const announcer = document.getElementById('turn-announcer');
             
-            announcer.innerText = `${currentTeam.name} SHOOTING!`;
-            announcer.classList.add('show-announcer');
-
-            playSound('whistle');
-
-            setTimeout(() => {
-                announcer.classList.remove('show-announcer');
-                speakCommentary(`${currentTeam.name} step up for penalty round ${currentRound}. Choose your target!`);
-            }, 1200);
+            p1Score = 0; p2Score = 0; currentRound = 1; currentTurn = 1;
+            updateScoreUI();
         }
 
-        function resetBallAndKeeper() {
-            const ball = document.getElementById('football');
-            const keeper = document.getElementById('goalkeeper');
-
-            ball.style.transform = 'scale(1)';
-            ball.style.left = 'calc(50% - 20px)';
-            ball.style.bottom = '45px';
-
-            keeper.style.transform = 'translate(0, 0) rotate(0deg)';
-            keeper.style.left = 'calc(50% - 35px)';
-            keeper.style.bottom = '10px';
+        function updateScoreUI() {
+            document.getElementById('score-text').innerText = `${p1Score} - ${p2Score}`;
+            document.getElementById('round-text').innerText = `ዙር ${currentRound} / 6`;
         }
 
-        // SHOT LOGIC
-        function takeShot(targetZone) {
+        function takeShot(zone) {
             if (isShooting) return;
             isShooting = true;
 
-            playSound('kick');
-
             const ball = document.getElementById('football');
             const keeper = document.getElementById('goalkeeper');
 
-            // Target Positions Mapping
-            const targetCoords = {
-                'top-left': { ballX: 'calc(50% - 240px)', ballY: '240px', scale: 0.5 },
-                'top-center': { ballX: 'calc(50% - 15px)', ballY: '250px', scale: 0.5 },
-                'top-right': { ballX: 'calc(50% + 210px)', ballY: '240px', scale: 0.5 },
-                'bottom-left': { ballX: 'calc(50% - 230px)', ballY: '110px', scale: 0.55 },
-                'bottom-center': { ballX: 'calc(50% - 15px)', ballY: '100px', scale: 0.55 },
-                'bottom-right': { ballX: 'calc(50% + 200px)', ballY: '110px', scale: 0.55 }
-            };
+            // Ball animation
+            ball.style.bottom = '220px';
+            ball.style.transform = 'scale(0.5)';
 
-            const zones = ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'];
-            
-            // Goalkeeper AI Dive Logic (Goalkeeper saves ~40% of the time)
-            const keeperChoice = zones[Math.floor(Math.random() * zones.length)];
-
-            // Animate Goalkeeper Dive
-            const keeperDiveMap = {
-                'top-left': 'translate(-180px, 80px) rotate(-45deg)',
-                'top-center': 'translate(0px, 90px) rotate(0deg)',
-                'top-right': 'translate(180px, 80px) rotate(45deg)',
-                'bottom-left': 'translate(-170px, 20px) rotate(-60deg)',
-                'bottom-center': 'translate(0px, 10px) rotate(0deg)',
-                'bottom-right': 'translate(170px, 20px) rotate(60deg)'
-            };
-
-            keeper.style.transform = keeperDiveMap[keeperChoice];
-
-            // Animate Ball
-            const coord = targetCoords[targetZone];
-            ball.style.left = coord.ballX;
-            ball.style.bottom = coord.ballY;
-            ball.style.transform = `scale(${coord.scale}) rotate(720deg)`;
-
-            const isSaved = (targetZone === keeperChoice);
+            // Keeper save decision (40% save rate)
+            const isSaved = Math.random() < 0.4;
+            if (isSaved) {
+                keeper.style.transform = 'translateX(-100px) rotate(-30deg)';
+            } else {
+                keeper.style.transform = 'translateX(100px) rotate(30deg)';
+            }
 
             setTimeout(() => {
-                if (isSaved) {
-                    playSound('save');
-                    speakCommentary("WHAT A SAVE! The goalkeeper denies the goal!");
-                    if (currentTurn === 1) p1Shots.push('miss');
-                    else p2Shots.push('miss');
+                if (!isSaved) {
+                    if (currentTurn === 1) p1Score++;
+                    else p2Score++;
+                    document.getElementById('commentary-text').innerText = "ጎኦኦኦል! ድንቅ ምት!";
                 } else {
-                    playSound('goal');
-                    speakCommentary("GOOOOOAL! Absolute quality strike into the net!");
-                    if (currentTurn === 1) {
-                        p1Score++;
-                        p1Shots.push('goal');
-                    } else {
-                        p2Score++;
-                        p2Shots.push('goal');
-                    }
+                    document.getElementById('commentary-text').innerText = "ተመለሰ! በረኛው አደነው!";
                 }
 
-                renderShotDots();
-                checkNextTurn();
+                updateScoreUI();
 
-            }, 700);
-        }
+                // Next turn
+                setTimeout(() => {
+                    ball.style.bottom = '40px';
+                    ball.style.transform = 'scale(1)';
+                    keeper.style.transform = 'none';
 
-        function checkNextTurn() {
-            setTimeout(() => {
-                if (currentTurn === 1) {
-                    currentTurn = 2;
-                    startTurn();
-                } else {
-                    currentTurn = 1;
-                    currentRound++;
+                    if (currentTurn === 1) {
+                        currentTurn = 2;
+                    } else {
+                        currentTurn = 1;
+                        currentRound++;
+                    }
 
-                    if (currentRound > MAX_SHOTS) {
+                    if (currentRound > 6) {
                         endGame();
                     } else {
-                        startTurn();
+                        isShooting = false;
                     }
-                }
-            }, 2000);
+                }, 1200);
+
+            }, 600);
         }
 
         function endGame() {
             document.getElementById('winner-screen').classList.remove('hidden');
+            const winnerText = document.getElementById('winner-title');
+            const scoreText = document.getElementById('winner-score');
+            const prizeText = document.getElementById('winner-prize');
 
-            let titleText = '';
+            scoreText.innerText = `ውጤት: ${selectedP1.name} ${p1Score} - ${p2Score} ${selectedP2.name}`;
+
             if (p1Score > p2Score) {
-                titleText = `${selectedP1.name} WINS THE SHOOTOUT!`;
-                speakCommentary(`Congratulations to ${selectedP1.name} for winning the penalty shootout!`);
+                const winAmt = currentBet * 1.5;
+                balance += winAmt;
+                winnerText.innerText = `እንኳን ደስ አለዎት! ${selectedP1.name} አሸነፈ!`;
+                prizeText.innerText = `የተሸለሙት የብር መጠን: +${winAmt} ብር`;
             } else if (p2Score > p1Score) {
-                titleText = `${selectedP2.name} WINS THE SHOOTOUT!`;
-                speakCommentary(`Congratulations to ${selectedP2.name} for winning the penalty shootout!`);
+                winnerText.innerText = `${selectedP2.name} አሸነፈ!`;
+                prizeText.innerText = `የተጫወቱት ${currentBet} ብር ተበልቷል።`;
             } else {
-                titleText = "IT'S A DRAW!";
-                speakCommentary("What a tight contest! The penalty shootout ends in a draw!");
+                balance += currentBet; // Draw refund
+                winnerText.innerText = "አኩል ወጡ!";
+                prizeText.innerText = `የተጫወቱት ${currentBet} ብር ተመልሶልዎታል።`;
             }
-
-            document.getElementById('winner-title').innerText = titleText;
-            document.getElementById('winner-score').innerText = `የመጨረሻ ውጤት: ${selectedP1.name} ${p1Score} - ${p2Score} ${selectedP2.name}`;
-            playSound('whistle');
+            updateBalanceUI();
         }
 
-        function resetGame() {
-            p1Score = 0;
-            p2Score = 0;
-            p1Shots = [];
-            p2Shots = [];
-            currentRound = 1;
-            currentTurn = 1;
-
+        function resetToSelection() {
+            isShooting = false;
             document.getElementById('winner-screen').classList.add('hidden');
             document.getElementById('game-screen').classList.add('hidden');
             document.getElementById('select-screen').classList.remove('hidden');
@@ -979,14 +561,3 @@
     </script>
 </body>
 </html>
-```eof
-
-የእንግሊዝ ፕሪምየር ሊግ የፔናሊቲ ምት (EPL Penalty Shootout) ጌም ተዘጋጅቷል!
-
-**የጌሙ ዋና ዋና ባህሪያት፡**
-1. **የፕሪምየር ሊግ ቡድኖች (EPL Teams):** አርሰናል፣ ማን ሲቲ፣ ሊቨርፑል፣ ማን ዩናይትድ፣ ቼልሲ፣ ቶተንሃም፣ ኒውካስል እና ሌሎችም ሙሉ በሙሉ ተካተዋል።
-2. **2 ተጫዋቾች እና 6 ዙር (6 Penalty Rounds):** ሁለቱም ተጫዋቾች ቡድኖቻቸውን መርጠው በተከታታይ 6 ዙር የፔናሊቲ ምቶችን ይመታሉ።
-3. **ድምፅ እና የኮሜንታተር ድምፅ (Sound & Live Commentary):** በምስል እና በድምፅ የሚናገር የቀጥታ የኮሜንታተር ድምፅ፣ የዳኛ ፊሽካ፣ የኳስ ምት እና የጎል ድምፆች አሉት።
-4. **ተንቀሳቃሽ በረኛ እና የግብ አቅጣጫዎች (Target Zones):** በረኛው (Goalkeeper) አቅጣጫዎችን ገምቶ የሚዘል ሲሆን፣ ተጫዋቹ 6 የተለያዩ የግብ ማዘያ አቅጣጫዎችን መርጦ ይመታል።
-
-ፋይሉን በመክፈት መጫወት ይችላሉ! ማሻሻል የሚፈልጉት ነገር ካለ ያሳውቁኝ።
